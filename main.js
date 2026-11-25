@@ -444,8 +444,7 @@ const PROJECTS = [
   { n: 'simulacra-bench', s: 3, c: ['embodied', 'ai4ai'], d: ['NeurIPS 2026 SimulacraBench entry.', 'NeurIPS 2026 SimulacraBench 参赛项目。'], l: 'Python' },
   { n: 'shanghai-city-digital-twin-plan', s: 2, c: ['real2sim'], d: ['Reproducible OpenStreetMap → 3D city assets with provenance and explicit validation limits.', '可复现的 OSM → 3D 城市资产，含溯源与明确的验证边界。'], l: 'Python' },
 ];
-let lang = (localStorage.getItem('lang') || (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en');
-if (localStorage.getItem('lang')) lang = localStorage.getItem('lang');
+let lang = 'en';
 
 const grid = document.getElementById('grid');
 function renderGrid(filter = 'all') {
@@ -473,6 +472,5 @@ function applyLang() {
   tEls.forEach((el) => { el.innerHTML = lang === 'zh' && el.dataset.zh ? el.dataset.zh : el.dataset.en; });
   renderGrid(filters.querySelector('.on').dataset.f);
   }
-document.getElementById('lang').addEventListener('click', () => { lang = lang === 'zh' ? 'en' : 'zh'; localStorage.setItem('lang', lang); applyLang(); });
 
 applyLang();
