@@ -422,6 +422,13 @@ requestAnimationFrame(frame);
 
 /* ───────────── content: i18n, projects, live GitHub data ───────────── */
 const PROJECTS = [
+  { n: 'Tenara', s: 3, c: ['infra'], d: ['Multi-tenant application hosting platform.', ''], l: 'Go' },
+  { n: 'qcow2file', s: 0, c: ['infra'], d: ['Generate qcow2 VM images straight from a Dockerfile.', ''], l: 'Go' },
+  { n: 'govirsh', s: 0, c: ['infra'], d: ['libvirt tooling in Go.', ''], l: 'Go' },
+  { n: 'sglang-glm53-flash-pro6000d', s: 0, c: ['infra', 'ai4ai'], d: ['Deploy GLM 5.3 Flash with SGLang on 8x PRO 6000D GPUs.', ''], l: 'Shell' },
+  { n: 'ai-task-platform', s: 0, c: ['infra', 'ai4ai'], d: ['Self-hosted workspace with user-scoped tasks, quotas and authenticated downloads.', ''], l: 'TypeScript' },
+  { n: 'esh', s: 0, c: ['infra'], d: ['Cross-platform SSH link management.', ''], l: 'Go' },
+  { n: 'fuckssl', s: 0, c: ['infra'], d: ['Request SSL certificates from multiple clouds and deploy them to different platforms.', ''], l: 'Go' },
   { n: 'opengeniemaster', s: 494, c: ['embodied', 'ai4ai'], d: ['Open-source embodied agent harness: execution, feedback, and continual improvement. EEP over MCP.', '开源具身 Agent Harness：执行、反馈与持续改进，基于 MCP 的 EEP 协议。'], l: 'Python' },
   { n: 'CSNative', s: 137, c: ['ai4ai'], d: ['Provider routing and custom models for Claude Science. Local-first, macOS, Go + Wails.', 'Claude Science 的模型供应商路由与自定义模型，本地优先，Go + Wails。'], l: 'Go' },
   { n: 'agentic-embedded-lab', s: 35, c: ['ai4ai', 'embodied'], d: ['Agent-native embedded systems lab: pluggable simulation, evidence-driven validation, controlled evolution.', '面向 Agent 的嵌入式实验室：可插拔仿真、证据驱动验证、受控进化。'], l: 'Python' },
