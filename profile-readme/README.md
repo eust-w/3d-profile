@@ -21,7 +21,7 @@ Real ──► 3DGS ──► Sim ──► Policy ──► Agent ──► (me
 
 | Project | What it is |
 |---|---|
-| ⭐ [**opengeniemaster**](https://github.com/eust-w/opengeniemaster) | Open-source embodied agent harness — EEP over MCP, safety interlocks, versioned memory, semantic multi-robot simulator |
+| [**opengeniemaster**](https://github.com/eust-w/opengeniemaster) | Open-source embodied agent harness — EEP over MCP, safety interlocks, versioned memory, semantic multi-robot simulator |
 | [amd-bigym-3dgs-rocm](https://github.com/eust-w/amd-bigym-3dgs-rocm) | 3DGS kitchen shell for BiGym / MuJoCo reproduced on AMD ROCm (W7900D verified) |
 | [amd-bigym-openpi-eval](https://github.com/eust-w/amd-bigym-openpi-eval) | OpenPI (JAX) + BiGym + MuJoCo + 3DGS evaluation with 3-camera recording |
 | [WorldSpec](https://github.com/eust-w/WorldSpec) | Canonical world semantics, evidence & validation → multi-simulator compilation |
@@ -45,7 +45,3 @@ Real ──► 3DGS ──► Sim ──► Policy ──► Agent ──► (me
 
 ![MuJoCo](https://img.shields.io/badge/MuJoCo-5ef0ff?style=flat-square) ![3DGS](https://img.shields.io/badge/3D_Gaussian_Splatting-ff5fa8?style=flat-square) ![LeRobot](https://img.shields.io/badge/LeRobot-ffc857?style=flat-square&logoColor=black) ![MCP](https://img.shields.io/badge/MCP-7aa8ff?style=flat-square) ![ROCm](https://img.shields.io/badge/AMD_ROCm-ED1C24?style=flat-square) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Rust](https://img.shields.io/badge/Rust-000?style=flat-square&logo=rust) ![Three.js](https://img.shields.io/badge/three.js-000?style=flat-square&logo=threedotjs)
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=eust-w&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0a1226" height="150">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=eust-w&layout=compact&theme=tokyonight&hide_border=true&bg_color=0a1226&langs_count=6" height="150">
-</p>

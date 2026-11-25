@@ -453,7 +453,7 @@ function renderGrid(filter = 'all') {
   PROJECTS.filter((p) => filter === 'all' || p.c.includes(filter)).forEach((p) => {
     const a = document.createElement('a');
     a.className = 'card'; a.href = 'https://github.com/eust-w/' + p.n; a.target = '_blank'; a.rel = 'noopener';
-    a.innerHTML = `<div class="top"><span class="nm">${p.n}</span><span class="st" data-star="${p.n}">${p.s ? '★ ' + p.s : ''}</span></div>
+    a.innerHTML = `<div class="top"><span class="nm">${p.n}</span></div>
       <p>${p.d[lang === 'zh' ? 1 : 0]}</p>
       <div class="meta"><span>${p.l}</span>${p.c.map((c) => `<span class="c-${c}">${c}</span>`).join('')}</div>`;
     grid.appendChild(a);
@@ -472,39 +472,7 @@ function applyLang() {
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
   tEls.forEach((el) => { el.innerHTML = lang === 'zh' && el.dataset.zh ? el.dataset.zh : el.dataset.en; });
   renderGrid(filters.querySelector('.on').dataset.f);
-  applyLiveStars();
-}
+  }
 document.getElementById('lang').addEventListener('click', () => { lang = lang === 'zh' ? 'en' : 'zh'; localStorage.setItem('lang', lang); applyLang(); });
-
-/* live GitHub data (falls back to the static snapshot above if rate-limited / offline) */
-let liveStars = {};
-function applyLiveStars() {
-  document.querySelectorAll('[data-star]').forEach((el) => { const s = liveStars[el.dataset.star]; if (s != null) el.textContent = s ? '★ ' + s : ''; });
-}
-const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n));
-function countUp(el, to, ms = 1400) {
-  const t0 = performance.now(), isK = to >= 1000;
-  const tick = (now) => {
-    const k = sstep(0, 1, (now - t0) / ms), v = Math.round(to * k);
-    el.textContent = isK ? fmt(v) : v; if (k < 1) requestAnimationFrame(tick); else el.textContent = isK ? fmt(to) : to;
-  };
-  requestAnimationFrame(tick);
-}
-document.querySelectorAll('[data-count]').forEach((el) => countUp(el, +el.dataset.count));
-(async () => {
-  try {
-    const u = await (await fetch('https://api.github.com/users/eust-w')).json();
-    if (!u.followers) return;
-    const pages = await Promise.all([1, 2, 3].map((n) => fetch(`https://api.github.com/users/eust-w/repos?per_page=100&page=${n}`).then((r) => r.json())));
-    const repos = pages.flat().filter(Array.isArray ? Boolean : Boolean);
-    let total = 0, top = 0;
-    repos.forEach((r) => { liveStars[r.name] = r.stargazers_count; if (!r.fork) { total += r.stargazers_count; top = Math.max(top, r.stargazers_count); } });
-    countUp(document.getElementById('s-followers'), u.followers);
-    countUp(document.getElementById('s-repos'), u.public_repos);
-    if (total) countUp(document.getElementById('s-stars'), total);
-    if (top) countUp(document.getElementById('s-top'), top);
-    applyLiveStars();
-  } catch (_) { /* keep static snapshot */ }
-})();
 
 applyLang();
